@@ -26,13 +26,13 @@ public class LinkedListStack<E> implements Stack<E> {
 		return null;
 	}
 
-	@Override
+	//@Override
 	public void push(E element) {
 
 	}
 
 	@Override
-	public E pop() throws Underflow {
+	public Object pop() throws Underflow {
 		return null;
 	}
 
