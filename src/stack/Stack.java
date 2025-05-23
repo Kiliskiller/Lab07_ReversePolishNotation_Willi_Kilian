@@ -33,3 +33,4 @@ public interface Stack<E> {
 		return Stack.removeFirst();
 	}
 }
+// weird
