@@ -7,8 +7,10 @@ import java.util.ArrayList;
 public class myScanner {
 
     static boolean done;
+    static int limitor;
+    static String operator;
 
-    String input;
+    static String input;
     public myScanner(String input){
         this.input = input.replaceAll("\\s+","");
     }
@@ -21,43 +23,69 @@ public class myScanner {
             cTok.add(input.charAt(i));
         }
 
-        for (int k = 0; k<cTok.size(); k++){
+
+        limitor = getLimitor();
+        int k = 0;
+        for (k = 0; k<cTok.size(); k++){
 
             if (isNumber(cTok.get(k))){
                 boolean unfinished = true;
+                String gesamt = "";
+                int l = 1;
                 while (unfinished) {
-                    String gesamt = "" + cTok.get(k);
-                    int l = 1;
-                    if (k==cTok.size()-1){
-                        result.add(""+cTok.get(k));
+
+
+                    if (k==cTok.size()-l){
+                        result.add(0,""+cTok.get(k));
                         unfinished = false;
                         break;
                     }
+                    //nächstes Zeichen ist eine Nummer
                     else if (isNumber(cTok.get(k+l))){
-                        gesamt += "" + cTok.get(k+l);
+                        gesamt += "" + cTok.get(k) + cTok.get(k+l);
                         l++;
+                        result.add(0,gesamt);
+                        unfinished = false;
+                        if(k>2){
+                        k--;}else{k++;}
                     } else {
-                        result.add(gesamt);
-                        unfinished = false;}
+                        gesamt = ""+cTok.get(k);
+                        result.add(0,gesamt);
+                        unfinished = false;
+//                        k++;
+                    }
                 }
             }
-
             else if (isOperator(cTok.get(k))){
-                result.add(""+cTok.get(k));
+                operator = ""+ cTok.get(k);
+                //result.add(2,""+cTok.get(k));
             }
         }
 
-
+        result.add(2,operator);
         String[] allTokens = new String[result.size()];
         for (int j = 0; j<result.size(); j++){
             allTokens[j]=result.get(j);
         }
         return allTokens;
-
     }
 
 
+    public static int getLimitor(){
+        switch(input.length()){
+            case 3: return 0;
+            case 4: return 1;
+            case 5: return 2;
+        }
+        return 0;
+    }
 
+
+//         for(int i = 0; i<input.length();i++){
+//            if(isNumber(input.charAt(i)) && ){
+//
+//            }
+//        }
 
 
     public static boolean isOperator(char e){
@@ -115,7 +143,7 @@ public class myScanner {
 //    }
 
 
-    private boolean isNumber(char c) {
+    private static boolean isNumber(char c) {
         if ((c < 58) && (c > 47)){
             return true;
         }else{return false;}

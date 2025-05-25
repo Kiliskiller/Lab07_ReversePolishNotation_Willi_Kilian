@@ -28,16 +28,16 @@ public class UI_exe {
                 if (myString.length() > 2) {
                    String[] tokens = new myScanner(myString).getToken();
 
-                   String formula = "";
-                    for (int i = 0; i < tokens.length; i++) {
-                        if (tokens[i] != null) {
-                            //System.out.println(tokens[i]);
-                            formula += tokens[i];
-                        }
-                    }
+//                   String formula = "";
+//                    for (int i = 0; i < tokens.length; i++) {
+//                        if (tokens[i] != null) {
+//                            //System.out.println(tokens[i]);
+//                            formula += tokens[i];
+//                        }
+//                    }
                     // tokens überführen
 
-                    out.println("Result: " + evaluate((toPostfix(formula))));
+                    out.println("Result: " + evaluate(tokens));
 
                 }else{
                     out.println("This is not a valid input.");
