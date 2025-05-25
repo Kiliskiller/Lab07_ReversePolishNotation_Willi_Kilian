@@ -23,7 +23,7 @@ public class ScannerTest {
     @MethodSource("testCases")
     public void testScanner(String infix, String tokenizedString) throws Underflow {
         String[] expected = tokenizedString.split(" ");
-        Scanner scanner = new Scanner(infix);
+        myScanner scanner = new myScanner(infix);
         String[]actual = scanner.getToken();
         assertArrayEquals(expected,actual);
     }

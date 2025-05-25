@@ -19,9 +19,9 @@ public class Postfix {
 			if (isNumber(token)) {
 				Stack.push(Double.parseDouble(token));
 			} else if (isOperator(token)) {
-				if (Stack.isEmpty()) throw new IllegalArgumentException("Malformed expression: missing operands.");
+				if (Stack.isEmpty()) throw new IllegalArgumentException("unfinished expression: missing operands.");
 				double b = (Double) Stack.pop();
-				if (Stack.isEmpty()) throw new IllegalArgumentException("Malformed expression: missing operands.");
+				if (Stack.isEmpty()) throw new IllegalArgumentException("unfinished expression: missing operands.");
 				double a = (Double) Stack.pop();
 				double result = applyOperator(a, b, token);
 				Stack.push(result);
@@ -30,15 +30,15 @@ public class Postfix {
 			}
 		}
 		if (Stack.isEmpty()) {
-			throw new IllegalArgumentException("Malformed expression: no result.");
+			throw new IllegalArgumentException("unfinished expression: no result.");
 		}
 		double finalResult = (Double) Stack.pop();
 		if (!Stack.isEmpty()) {
-			throw new IllegalArgumentException("Malformed expression: leftover operands.");
+			throw new IllegalArgumentException("unfinished expression: leftover operands.");
 		}
 		return finalResult;
 	}
-	private static boolean isNumber(String token) {
+	public static boolean isNumber(String token) {
 		try {
 			Double.parseDouble(token);
 			return true;

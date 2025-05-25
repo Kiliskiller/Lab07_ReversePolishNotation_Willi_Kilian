@@ -8,8 +8,9 @@ import static stack.Stack.Stack;
 public class Infix {
 
     public static void main(String[] args) throws Underflow {
-        System.out.println("Should be 42: " + (int) Postfix.evaluate( (toPostfix("7 * 6"))));
-        System.out.println("Should be 20: " + (int) Postfix.evaluate("5 4 *"));
+        System.out.println("Should be 42: " + Postfix.evaluate((toPostfix("7 * 6"))));
+        System.out.println("Should be 20: " + Postfix.evaluate("5 4 *"));
+        System.out.println("Should be 2.25: " + Postfix.evaluate("9 4 /"));
 //        System.out.println(toPostfix("1 + 2"));
 //        System.out.println(toPostfix("3 - 4"));
 //        System.out.println(toPostfix("6 * 7"));
