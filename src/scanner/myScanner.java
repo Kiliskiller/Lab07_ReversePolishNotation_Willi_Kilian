@@ -46,7 +46,7 @@ public class myScanner {
                         l++;
                         result.add(0,gesamt);
                         unfinished = false;
-                        if(k>2){
+                        if(k>3){
                         k--;}else{k++;}
                     } else {
                         gesamt = ""+cTok.get(k);

@@ -22,6 +22,7 @@ public class UI_exe {
 
     public static int getType() throws Underflow {
         Scanner scanner = new Scanner(System.in);
+        out.println("\nSchreib' hier die Terme hinein, die du berechnet haben willst.\nDein Input sollte das Format -Zahl Operation Zahl- haben, dabei dürfen die Zahlen bis zu zweistellig sein.");
         while (true) {
             try {
                 String myString = scanner.nextLine();
