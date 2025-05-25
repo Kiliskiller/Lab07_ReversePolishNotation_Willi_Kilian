@@ -1,9 +1,4 @@
 package scanner;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Spliterator;
-import java.util.concurrent.RecursiveTask;
-import java.util.function.Consumer;
 
 public class Scanner {
 
@@ -20,5 +15,5 @@ public class Scanner {
         return result;
     }
 
-    }
+}
 

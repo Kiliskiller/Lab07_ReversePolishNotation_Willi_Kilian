@@ -1,15 +1,19 @@
 package postfix;
 
+import stack.Underflow;
+
 
 import static stack.Stack.Stack;
 
 public class Infix {
 
-    public static void main(String[] args){
-        System.out.println(toPostfix("1 + 2"));
-        System.out.println(toPostfix("3 - 4"));
-        System.out.println(toPostfix("6 * 7"));
-        System.out.println(toPostfix("8 / 4"));
+    public static void main(String[] args) throws Underflow {
+        System.out.println("Should be 42: " + (int) Postfix.evaluate( (toPostfix("7 * 6"))));
+        System.out.println("Should be 20: " + (int) Postfix.evaluate("5 4 *"));
+//        System.out.println(toPostfix("1 + 2"));
+//        System.out.println(toPostfix("3 - 4"));
+//        System.out.println(toPostfix("6 * 7"));
+//        System.out.println(toPostfix("8 / 4"));
     }
 
     public static String toPostfix(String infix) {
@@ -39,33 +43,3 @@ public class Infix {
         return output;
     }
 }
-
-
-
-
-
-/*
-
-// this method is a good template for the scanner class -> 2d Array with hints for is it a number or an operator
-
- Object[][] cache = {{0,1,2},
-                        {     }};
-
-
-switch (CharacterAnalysis.getType(infix.charAt(i))) {
-int l = 0;
-                // Ziffer
-                case 0:
-                        cache[l][infix.charAt(i)] = infix.charAt(i);
-                        System.out.println("Added "+infix.charAt(i)+" to cache as num");
-                        l++;
-
-                // Operand
-                case 1:
-                        cache[l][infix.charAt(i)] = infix.charAt(i);
-                        System.out.println("Added "+infix.charAt(i)+" to cache as operand");
-                        l++;
-                // unwichtiges Zeichen
-                case -1:
-                }
- */
